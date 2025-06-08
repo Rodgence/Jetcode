@@ -65,6 +65,9 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </div>
 
+      <!-- Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay d-xl-none"></div>
+      
       <!-- Mobile Navigation -->
       <nav class="mobile-nav d-xl-none">
         <ul>
@@ -472,30 +475,44 @@
     document.addEventListener('DOMContentLoaded', function() {
       const mobileToggle = document.querySelector('.mobile-nav-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
+      const mobileOverlay = document.querySelector('.mobile-nav-overlay');
       
-      if (mobileToggle && mobileNav) {
+      if (mobileToggle && mobileNav && mobileOverlay) {
+        
+        function openMobileNav() {
+          mobileNav.classList.add('active');
+          mobileOverlay.classList.add('active');
+          mobileToggle.classList.remove('bi-list');
+          mobileToggle.classList.add('bi-x');
+          document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileNav() {
+          mobileNav.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          mobileToggle.classList.add('bi-list');
+          mobileToggle.classList.remove('bi-x');
+          document.body.style.overflow = '';
+        }
+        
         mobileToggle.addEventListener('click', function() {
-          mobileNav.classList.toggle('active');
-          this.classList.toggle('bi-list');
-          this.classList.toggle('bi-x');
+          if (mobileNav.classList.contains('active')) {
+            closeMobileNav();
+          } else {
+            openMobileNav();
+          }
         });
 
         // Close mobile nav when clicking on a link
         mobileNav.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            mobileToggle.classList.add('bi-list');
-            mobileToggle.classList.remove('bi-x');
+            closeMobileNav();
           });
         });
 
-        // Close mobile nav when clicking outside
-        document.addEventListener('click', function(e) {
-          if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            mobileToggle.classList.add('bi-list');
-            mobileToggle.classList.remove('bi-x');
-          }
+        // Close mobile nav when clicking overlay
+        mobileOverlay.addEventListener('click', function() {
+          closeMobileNav();
         });
       }
     });
