@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Jetcode Innovationb Co. Ltd - Electrical Submetering Tanzania</title>
-  <meta name="description" content="Jetcode Innovationb Company Limited is Tanzania’s trusted supplier and distributor of certified electrical submeters. Manage energy usage and buy electricity instantly with the Jetcode App.">
+  <meta name="description" content="Jetcode Innovationb Company Limited is Tanzania's trusted supplier and distributor of certified electrical submeters. Manage energy usage and buy electricity instantly with the Jetcode App.">
   <meta name="keywords" content="electrical submeters, Tanzania, Jetcode, energy management, submeter sales, power purchase, Jetcode App, electricity tokens, installation, support">
 
   <!-- Favicons -->
@@ -33,22 +33,50 @@
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+      
+      <!-- Logo Left -->
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/Group.png" alt="Jetcode Innovationb Co. Ltd" style="height:40px;margin-right:10px;">
         <!-- <h1 class="sitename">Jetcode Innovationb Co. Ltd</h1><span>.</span> -->
       </a>
-      <nav id="navmenu" class="navmenu">
+
+      <!-- Right Section: Navigation + Buttons + Hamburger -->
+      <div class="header-right d-flex align-items-center">
+        <nav id="navmenu" class="navmenu d-none d-xl-block">
+          <ul>
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share">Install Jetcode App</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="privacy-policy">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+
+        <div class="app-download-buttons">
+          <a class="btn-getstarted btn-appstore" href="https://submeter.jetcode.co.tz/" target="_blank">
+            <i class="bi bi-apple"></i> <span class="btn-text">iPhone Link</span>
+          </a>
+          <a class="btn-getstarted btn-playstore" href="https://play.google.com/store/search?q=jetcode%20app" target="_blank">
+            <i class="bi bi-google-play"></i> <span class="btn-text">Install App</span>
+          </a>
+        </div>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav d-xl-none">
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share">Install Jetcode App</a></li>
-           <li><a href="#contact">Contact</a></li>
-                  <li><a href="privacy-policy">Privacy Policy</a></li>
-        <li><a href="terms-and-conditions">Terms and Conditions</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="privacy-policy">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions">Terms and Conditions</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="https://submeter.jetcode.co.tz/">Iphone Link</a>
+
     </div>
   </header>
 
@@ -73,7 +101,7 @@
             <h1 class="hero-title mb-4">Smart Electrical Submetering & Easy Power Purchase</h1>
 
             <p class="hero-description mb-4">
-              Jetcode Innovationb Company Limited is Tanzania’s trusted supplier and distributor of certified electrical submeters. We help landlords, tenants, and businesses manage energy usage and payments with ease. Buy electricity instantly using the Jetcode App, available on Google Play.
+              Jetcode Innovationb Company Limited is Tanzania's trusted supplier and distributor of certified electrical submeters. We help landlords, tenants, and businesses manage energy usage and payments with ease. Buy electricity instantly using the Jetcode App, available on Google Play.
             </p>
 
             <div class="cta-wrapper">
@@ -439,6 +467,40 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Mobile Navigation Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.querySelector('.mobile-nav-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      
+      if (mobileToggle && mobileNav) {
+        mobileToggle.addEventListener('click', function() {
+          mobileNav.classList.toggle('active');
+          this.classList.toggle('bi-list');
+          this.classList.toggle('bi-x');
+        });
+
+        // Close mobile nav when clicking on a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            mobileToggle.classList.add('bi-list');
+            mobileToggle.classList.remove('bi-x');
+          });
+        });
+
+        // Close mobile nav when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!mobileNav.contains(e.target) && !mobileToggle.contains(e.target)) {
+            mobileNav.classList.remove('active');
+            mobileToggle.classList.add('bi-list');
+            mobileToggle.classList.remove('bi-x');
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 
