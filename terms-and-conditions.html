@@ -33,22 +33,53 @@
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-      <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+      
+      <!-- Logo Left -->
+      <a href="/" class="logo d-flex align-items-center">
         <img src="assets/img/Group.png" alt="Jetcode Innovationb Co. Ltd" style="height:40px;margin-right:10px;">
         <!-- <h1 class="sitename">Jetcode Innovationb Co. Ltd</h1><span>.</span> -->
       </a>
-      <nav id="navmenu" class="navmenu">
-        <ul>
-                  <li><a href="/">Home</a></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share">Install Jetcode App</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li><a href="privacy-policy">Privacy Policy</a></li>
-        <li><a href="terms-and-conditions" class="active">Terms and Conditions</a></li>
-        </ul>
+
+      <!-- Right Section: Navigation + Buttons + Hamburger -->
+      <div class="header-right d-flex align-items-center">
+        <nav id="navmenu" class="navmenu d-none d-xl-block">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share">Install Jetcode App</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="privacy-policy">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions" class="active">Terms and Conditions</a></li>
+          </ul>
+        </nav>
+
+        <div class="app-download-buttons">
+          <a class="btn-getstarted btn-appstore" href="https://apps.apple.com/app/jetcode/id123456789" target="_blank">
+            <i class="bi bi-apple"></i> <span class="btn-text">iPhone</span>
+          </a>
+          <a class="btn-getstarted btn-playstore" href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share" target="_blank">
+            <i class="bi bi-google-play"></i> <span class="btn-text">Android</span>
+          </a>
+        </div>
+
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </div>
+
+      <!-- Mobile Navigation Overlay -->
+      <div class="mobile-nav-overlay d-xl-none"></div>
+      
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav d-xl-none">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.jetcode.jetcodeinno&pcampaignid=web_share">Install Jetcode App</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          <li><a href="privacy-policy">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions" class="active">Terms and Conditions</a></li>
+        </ul>
       </nav>
-      <a class="btn-getstarted" href="https://submeter.jetcode.co.tz/">Iphone Link</a>
+
     </div>
   </header>
 
@@ -192,6 +223,54 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Mobile Navigation Toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileToggle = document.querySelector('.mobile-nav-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+      
+      if (mobileToggle && mobileNav && mobileOverlay) {
+        
+        function openMobileNav() {
+          mobileNav.classList.add('active');
+          mobileOverlay.classList.add('active');
+          mobileToggle.classList.remove('bi-list');
+          mobileToggle.classList.add('bi-x');
+          document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileNav() {
+          mobileNav.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          mobileToggle.classList.add('bi-list');
+          mobileToggle.classList.remove('bi-x');
+          document.body.style.overflow = '';
+        }
+        
+        mobileToggle.addEventListener('click', function() {
+          if (mobileNav.classList.contains('active')) {
+            closeMobileNav();
+          } else {
+            openMobileNav();
+          }
+        });
+
+        // Close mobile nav when clicking on a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            closeMobileNav();
+          });
+        });
+
+        // Close mobile nav when clicking overlay
+        mobileOverlay.addEventListener('click', function() {
+          closeMobileNav();
+        });
+      }
+    });
+  </script>
 
 </body>
 
