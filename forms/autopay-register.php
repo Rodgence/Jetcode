@@ -245,7 +245,9 @@ file_put_contents('autopay_registrations.log', $log_entry, FILE_APPEND | LOCK_EX
 
 // Return success response
 if ($admin_sent) {
-    echo 'Registration successful! We will contact you within 24 hours to complete the setup.';
+    // Redirect to auto-pay.html with success message
+    header('Location: ../auto-pay.html?success=1');
+    exit;
 } else {
     http_response_code(500);
     echo 'Registration failed. Please try again or contact us directly at +255 657 743 547.';
