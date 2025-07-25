@@ -14,9 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 $receiving_email_address = 'info@jetcode.co.tz';
 $admin_email = 'admin@jetcode.co.tz';
 
-// Include the form validation and email library
-require_once 'validate.php';
-
 // Sanitize and validate form data
 $fullname = validate_input($_POST['fullname'] ?? '');
 $phone = validate_input($_POST['phone'] ?? '');
