@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 }
 
 // Configuration
-$receiving_email_address = 'info@jetcode.co.tz';
+$receiving_email_address = 'support@jetcode.co.tz';
 $admin_email = 'admin@jetcode.co.tz';
 
 // Sanitize and validate form data
@@ -107,20 +107,26 @@ $message = "
         
         <h3>Auto-pay Configuration:</h3>
         
-        <div class='field'>
-            <span class='label'>Preferred Recharge Amount:</span>
-            <span class='value'>" . htmlspecialchars($recharge_amount) . " TSh</span>
-        </div>
-        
-        <div class='field'>
-            <span class='label'>Trigger When Balance Below:</span>
-            <span class='value'>" . htmlspecialchars($trigger_balance) . " TSh</span>
-        </div>
-        
-        <div class='field'>
-            <span class='label'>Preferred Payment Method:</span>
-            <span class='value'>" . htmlspecialchars($payment_method) . "</span>
-        </div>
+                 <?php if (!empty($recharge_amount)): ?>
+         <div class='field'>
+             <span class='label'>Preferred Recharge Amount:</span>
+             <span class='value'>" . htmlspecialchars($recharge_amount) . " TSh</span>
+         </div>
+         <?php endif; ?>
+         
+         <?php if (!empty($trigger_balance)): ?>
+         <div class='field'>
+             <span class='label'>Trigger When Balance Below:</span>
+             <span class='value'>" . htmlspecialchars($trigger_balance) . " TSh</span>
+         </div>
+         <?php endif; ?>
+         
+         <?php if (!empty($payment_method)): ?>
+         <div class='field'>
+             <span class='label'>Preferred Payment Method:</span>
+             <span class='value'>" . htmlspecialchars($payment_method) . "</span>
+         </div>
+         <?php endif; ?>
         
         <div class='field'>
             <span class='label'>Installation Address:</span>
@@ -211,9 +217,9 @@ $customer_message = "
             <li>Start enjoying uninterrupted power supply!</li>
         </ol>
         
-        <p>If you have any immediate questions, please contact us at:</p>
-        <p><strong>Phone:</strong> +255 657 743 547<br>
-        <strong>Email:</strong> info@jetcode.co.tz</p>
+                 <p>If you have any immediate questions, please contact us at:</p>
+         <p><strong>Phone:</strong> +255 657 743 547<br>
+         <strong>Email:</strong> support@jetcode.co.tz</p>
     </div>
     
     <div class='footer'>
