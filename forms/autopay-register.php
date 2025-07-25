@@ -232,7 +232,7 @@ $customer_message = "
 
 $customer_headers = array(
     'From' => 'noreply@jetcode.co.tz',
-    'Reply-To' => 'info@jetcode.co.tz',
+    'Reply-To' => 'support@jetcode.co.tz',
     'X-Mailer' => 'PHP/' . phpversion(),
     'MIME-Version' => '1.0',
     'Content-Type' => 'text/html; charset=UTF-8'
