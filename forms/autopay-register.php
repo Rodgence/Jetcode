@@ -49,18 +49,6 @@ if (empty($meter_number)) {
     $errors[] = 'Meter number is required';
 }
 
-if (empty($recharge_amount)) {
-    $errors[] = 'Preferred recharge amount is required';
-}
-
-if (empty($trigger_balance)) {
-    $errors[] = 'Trigger balance amount is required';
-}
-
-if (empty($payment_method)) {
-    $errors[] = 'Payment method is required';
-}
-
 if ($terms_agreed !== 'Yes') {
     $errors[] = 'You must agree to the Terms and Conditions';
 }
