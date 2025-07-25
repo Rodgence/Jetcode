@@ -3209,6 +3209,251 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Auto-pay Registration Section Styles
+--------------------------------------------------------------*/
+.autopay-register {
+  padding: 80px 0;
+}
+
+.autopay-info {
+  padding: 30px;
+  height: 100%;
+}
+
+.autopay-info-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+}
+
+.autopay-info-description {
+  font-size: 1.1rem;
+  color: var(--default-color);
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.autopay-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item i {
+  font-size: 1.5rem;
+  margin-top: 2px;
+}
+
+.benefit-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 5px;
+}
+
+.benefit-item p {
+  font-size: 0.95rem;
+  color: var(--default-color);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.autopay-form-wrapper {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.autopay-form .form-group {
+  margin-bottom: 20px;
+}
+
+.autopay-form label {
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.autopay-form .input-group {
+  position: relative;
+}
+
+.autopay-form .input-group-text {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 0 0 8px;
+}
+
+.autopay-form .form-control {
+  border: 2px solid #e1e5e9;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.autopay-form .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.2rem rgba(226, 29, 38, 0.1);
+  outline: none;
+}
+
+.autopay-form textarea.form-control {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.autopay-form .form-check {
+  padding-left: 0;
+}
+
+.autopay-form .form-check-input {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 10px;
+  border: 2px solid var(--accent-color);
+}
+
+.autopay-form .form-check-input:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.autopay-form .form-check-label {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.autopay-form .form-check-label a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.autopay-form .form-check-label a:hover {
+  text-decoration: underline;
+}
+
+.autopay-form .btn-primary {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #d41820 100%);
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(226, 29, 38, 0.3);
+}
+
+.autopay-form .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(226, 29, 38, 0.4);
+  background: linear-gradient(135deg, #d41820 0%, var(--accent-color) 100%);
+}
+
+.autopay-form .loading,
+.autopay-form .error-message,
+.autopay-form .sent-message {
+  display: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.autopay-form .loading {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.autopay-form .error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.autopay-form .sent-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .autopay-register {
+    padding: 60px 0;
+  }
+  
+  .autopay-form-wrapper {
+    padding: 30px 20px;
+    margin-top: 30px;
+  }
+  
+  .autopay-info {
+    padding: 0;
+  }
+  
+  .benefit-item {
+    padding: 12px;
+  }
+  
+  .autopay-info-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .autopay-form-wrapper {
+    padding: 25px 15px;
+  }
+  
+  .autopay-form .btn-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .benefit-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .benefit-item i {
+    align-self: center;
+  }
+}
+
+/*--------------------------------------------------------------
 # App Download Buttons Styles
 --------------------------------------------------------------*/
 .app-download-buttons {
