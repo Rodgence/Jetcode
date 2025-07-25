@@ -272,6 +272,32 @@ h6 {
     color: var(--nav-hover-color);
   }
 
+  /* New Badge Styling */
+  .nav-badge {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+    position: relative;
+    top: -2px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(226, 29, 38, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(226, 29, 38, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(226, 29, 38, 0);
+    }
+  }
+
   .navmenu .dropdown ul {
     margin: 0;
     padding: 10px 0;
@@ -3175,5 +3201,159 @@ section,
   
   .mobile-nav {
     width: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Auto-pay Section
+--------------------------------------------------------------*/
+.autopay {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 97%);
+  position: relative;
+  overflow: hidden;
+}
+
+.autopay .autopay-content {
+  padding: 2rem 0;
+}
+
+.autopay .autopay-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.autopay .autopay-description {
+  font-size: 1.125rem;
+  color: var(--default-color);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.autopay .autopay-benefits h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+.autopay .autopay-benefits ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.autopay .autopay-benefits ul li {
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.autopay .autopay-benefits ul li i {
+  color: var(--accent-color);
+  font-size: 1.125rem;
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+  flex-shrink: 0;
+}
+
+.autopay .autopay-benefits ul li span {
+  color: var(--default-color);
+}
+
+.autopay .autopay-cta {
+  margin-top: 2rem;
+}
+
+.autopay .autopay-btn {
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.autopay .autopay-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), #000 15%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 15%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(226, 29, 38, 0.25);
+  color: var(--contrast-color);
+  text-decoration: none;
+}
+
+.autopay .autopay-btn i {
+  font-size: 1.125rem;
+}
+
+.autopay .autopay-banner {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.autopay .autopay-banner:hover {
+  transform: translateY(-5px);
+}
+
+.autopay .autopay-banner-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.autopay .autopay-banner:hover .autopay-banner-img {
+  transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991.98px) {
+  .autopay .autopay-title {
+    font-size: 1.875rem;
+  }
+  
+  .autopay .autopay-description {
+    font-size: 1rem;
+  }
+
+  .autopay .autopay-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .autopay .autopay-title {
+    font-size: 1.625rem;
+    text-align: center;
+  }
+  
+  .autopay .autopay-description {
+    text-align: center;
+  }
+
+  .autopay .autopay-benefits {
+    text-align: left;
+  }
+
+  .autopay .autopay-cta {
+    text-align: center;
+  }
+
+  .autopay .autopay-banner {
+    margin-top: 2rem;
   }
 }
