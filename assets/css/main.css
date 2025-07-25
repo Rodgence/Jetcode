@@ -272,27 +272,57 @@ h6 {
     color: var(--nav-hover-color);
   }
 
-  /* New Badge Styling */
+  /* Professional New Badge Styling */
   .nav-badge {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, #e21d26 0%, #d41820 100%);
     color: #ffffff;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 10px;
-    margin-left: 8px;
+    font-family: var(--heading-font);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 6px;
     position: relative;
-    top: -2px;
-    animation: pulse 2s infinite;
+    top: -1px;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(226, 29, 38, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
   }
 
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(226, 29, 38, 0.7);
+  .nav-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(226, 29, 38, 0.4);
+    background: linear-gradient(135deg, #f02530 0%, #e21d26 100%);
+  }
+
+  /* Subtle pulse animation for new badge */
+  .nav-badge::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(226, 29, 38, 0.4) 0%, rgba(212, 24, 32, 0.4) 100%);
+    border-radius: 14px;
+    z-index: -1;
+    animation: subtlePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes subtlePulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
     }
-    70% {
-      box-shadow: 0 0 0 10px rgba(226, 29, 38, 0);
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
     }
+  }
     100% {
       box-shadow: 0 0 0 0 rgba(226, 29, 38, 0);
     }
@@ -3081,6 +3111,101 @@ section,
 .mobile-nav ul li a.active {
   background: var(--accent-color);
   color: var(--contrast-color);
+}
+
+/* Mobile-specific nav-badge adjustments */
+.mobile-nav .nav-badge {
+  font-size: 8px;
+  padding: 3px 8px;
+  margin-left: 4px;
+  border-radius: 8px;
+  top: 0px;
+  position: relative;
+  background: linear-gradient(135deg, #e21d26 0%, #d41820 100%);
+  background-image: 
+    linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+  background-size: 6px 6px;
+  background-position: 0 0, 0 3px, 3px -3px, -3px 0px;
+  animation: brickShift 2s ease-in-out infinite;
+  box-shadow: 
+    0 2px 6px rgba(226, 29, 38, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.mobile-nav .nav-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(226, 29, 38, 0.6) 0%, rgba(212, 24, 32, 0.6) 100%);
+  border-radius: 10px;
+  z-index: -1;
+  animation: brickPulse 2s ease-in-out infinite;
+}
+
+.mobile-nav .nav-badge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  z-index: 1;
+  animation: brickSlide 3s linear infinite;
+}
+
+@keyframes brickShift {
+  0%, 100% {
+    background-position: 0 0, 0 3px, 3px -3px, -3px 0px;
+    transform: scale(1);
+  }
+  25% {
+    background-position: 1px 1px, 1px 4px, 4px -2px, -2px 1px;
+    transform: scale(1.02);
+  }
+  50% {
+    background-position: 2px 0, 2px 3px, 5px -3px, -1px 0px;
+    transform: scale(1);
+  }
+  75% {
+    background-position: 1px -1px, 1px 2px, 4px -4px, -2px -1px;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes brickPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes brickSlide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 8px 0;
+  }
 }
 
 /*--------------------------------------------------------------
